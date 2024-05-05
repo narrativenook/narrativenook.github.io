@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="">
+  <!-- <link rel="canonical" href="narrativenook.blog"> -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="salmon">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="INDEX, FOLLOW">
+  <meta name="description"
+    content="Discover Narrative Nook : a sleek, minimalist blog platform covering diverse global topics. Our industry's first groundbreaking AI summarization tool condenses articles into a few lines, saving time without sacrificing understanding. Explore technology, world affairs, and captivating narratives with ease.">
+  <meta name="keywords"
+    content="narrative nook, Narrative Nook, narrativenook.com , narrativenook.blog , narrativenook.in , best blog website , best articles website, cleanest website blogs, cleanest website powered by AI, ChatGPT, Gemini, AGI, Stable Diffusion, Midjourney">
+
+  <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-messaging.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-storage.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-database.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="shortcut icon"
+    href="https://cdn.jsdelivr.net/gh/Akshat-Diwedi/Narrative_Nook_Assets_Storage@main/logo/comp-logo.png"
+    type="image/x-icon">
+  <title>Narrative Nook</title>
+</head>
+
+<body id="bodyid">
+
+
+
+  <div class="boxofmandala">
+    <img class="mandalabackground"
+      src="https://cdn.jsdelivr.net/gh/Nuclear-Games/Narrative_Nook_Assets_Storage@main/icons/mandala.png"
+      alt="mandalaart">
+  </div>
+
+  <center>
+    <div class="topbar">
+      <h2 class="logoname" id="gsaplogotext">Narrative &nbsp;&nbsp; Nook</h2>
+
+
+      <center>
+        <div class="searchbox">
+          <input type="text" class="postsearch" placeholder="Search Post Here !" oninput="enableSearchButton()"
+            onkeypress="handleKeyPress(event)">
+          <button class="searchpostbtn" onclick="searchpost()" id="searchButton" disabled><i
+              class="fas fa-search"></i></button>
+        </div>
+      </center>
+
+
+      <div class="topbarbuttonbox">
+        <button class="accountboxtrigger" onclick="openaccountpanel()"><i class="fas fa-user"
+            style="color:#cb1954;"></i>&nbsp;&nbsp;Account</button>
+        <button class="crown" onclick="alert('Premium Plan is coming soon !')"><img
+            src="https://cdn.jsdelivr.net/gh/Nuclear-Games/Narrative_Nook_Assets_Storage@main/icons/Crown.png"
+            alt="crownlogo"></button>
+      </div>
+
+
+    </div>
+  </center>
+
+
+
+
+
+  <div class="useraccountbox">
+
+    <button onclick="closeaccountpanel()" class="closeuseraccountboxbtn"><i class="fa fa-x"></i>&nbsp; Close</button>
+    <div class="usernameandprofile">
+      <img src="" alt="userprofileimage" class="userprofileimage">
+      <div class="usernameandemaildisplay">
+        <h3 class="usernamedisplay"></h3>
+        <h5 class="useremaildisplay"></h5>
+      </div>
+    </div>
+
+
+    <center>
+      <h4 class="accountcreatedinfo">Your account is now created ! we're building this page , and soon you will be able
+        to control a lot of things ! 😉</h4>
+    </center>
+
+    <center>
+      <button onclick="openloginsignupbox()" class="openloginsignupboxbtn">
+        <i class="fas fa-user"></i>
+        &nbsp;
+        Login / Signup
+      </button>
+
+    </center>
+  </div>
+
+
+
+
+
+
+
+  <div class="loginsignupbox">
+    <center>
+      <button id="toggle-btn" class="topsidebtns">Switch to Login</button>
+      <button onclick="closeloginsignupbox()" class="topsidebtns"><i class="fa fa-x"></i></button>
+    </center>
+
+    <div class="form-container" id="login-form" style="display: none;">
+      <center>
+        <br>
+        <h2>Login</h2>
+        <input type="text" id="login-name" placeholder="Name" required>
+        <input type="text" id="login-phone" placeholder="Phone Number" required>
+        <input type="email" id="login-email" placeholder="Email" required>
+        <button id="login-btn" class="loginsignupbtn">Login</button>
+      </center>
+    </div>
+
+    <div class="form-container" id="signup-form">
+      <center>
+        <br>
+        <h2>Signup</h2>
+        <input type="file" id="signup-profile-pic" accept="image/*">
+        <input type="text" id="signup-name" placeholder="Name" required>
+        <input type="text" id="signup-phone" placeholder="Phone Number" required>
+        <input type="email" id="signup-email" placeholder="Email" required>
+        <button id="signup-btn" class="loginsignupbtn">Signup</button>
+      </center>
+    </div>
+  </div>
+
+
+
+
+
+
+
+  <center>
+    <div class="searchresults">
+
+      <center>
+        <h4 class="searchinstruction">On average, it only takes about 4 seconds to find an article. If you don't see any
+          results, it means there's nothing matching your search in our database.</h4>
+      </center>
+
+    </div>
+  </center><br><br><br>
+
+  <center>
+    <div class="trendingtopics">
+      <h2>Trending Topics :</h2>&nbsp;&nbsp;&nbsp;<br>
+      <button>Ai</button>
+      <button>Technology</button>
+      <button>Smart Phones</button>
+      <button>Sanatan 🚩</button>
+      <button>Geo-Politics</button>
+      <button>Foods & Recipe</button>
+    </div>
+  </center>
+
+
+  <center>
+    <div class="pagelinebreak" id="pagelinebreakgsap">
+      <center>
+        <div class="inducedlines" style="width: 92.5%;"></div>
+        <div class="inducedlines" style="width: 82.5%; margin-bottom: 3.5px;"></div>
+        <div class="inducedlines" style="width: 72.5%;"></div>
+      </center>
+    </div>
+  </center><br><br><br>
+
+
+  <center>
+    <div class="verticlelinebreak"></div>
+  </center>
+
+  <center>
+    <div class="latestpostsection">
+
+      <!-- <div class="latestpost">
+
+        <img src="images/Flag_of_China.png" class="banner" alt="banner image">
+        <div class="authordetails">
+          <img src="authors/akshat.jpg" class="authorprofile" alt="author profile">
+          <p class="authorname">Akshat Diwedi</p>
+          <p class="timestampdisplay">13/03/24</p>
+        </div>
+        <h3 class="postheading"> Top 5 Best Youtube Channels That Will Blow your mind !</h3>
+        <p class="sometextofpost">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+          incididunt ut labore et dolore magna aliqua. Ut enim ad minim , quis nostrud exercitation ullamco laboris nisi
+          ut aliquip ex ea commodo consequat. Duis aute irure dolor in</p>
+
+        <div class="allbuttons">
+          <button class="viewers"><i class="fas fa-eye"></i>&nbsp;&nbsp;27.9K</button>
+          <a href="www.google.com" class="linkofblog">
+            <button class="gotoblogbutton">Read now &nbsp;&nbsp;<i class="fas fa-arrow-right"></i></button>
+          </a>
+        </div>
+      </div> -->
+
+
+      <center>
+        <h2>Loading . . . </h2>
+      </center>
+
+    </div>
+  </center>
+
+
+  <br><br><br><br>
+
+  <center>
+    <h1 class="baoat">Best Authors of all time</h1>
+  </center>
+
+  <center>
+    <div class="authorsbox">
+
+      <div class="authorprofilebox">
+        <img src="authors/nityadiwedi.webp" alt="authorprofileimage" class="authorprofileimage">
+        <div class="authornameanddescdisplay">
+          <h2 class="authornamedisplay">Nitya Diwedi</h2>
+          <p>Founder & CEO - Narrative Nook</p>
+          <button id="follow-nitya-diwedi" class="followauthorbtn"
+            onclick="followAuthor('Nitya Diwedi')">Follow</button>
+          <button class="gotoauthorprofile">Know More</button>
+        </div>
+      </div>
+
+
+      <div class="authorprofilebox">
+        <img src="authors/akshat.jpg" alt="authorprofileimage" class="authorprofileimage">
+        <div class="authornameanddescdisplay">
+          <h2 class="authornamedisplay">Akshat Diwedi</h2>
+          <p>Developer at - Narrative Nook</p>
+          <button id="follow-akshat-diwedi" class="followauthorbtn"
+            onclick="followAuthor('Akshat Diwedi')">Follow</button>
+          <button class="gotoauthorprofile">Know More</button>
+        </div>
+      </div>
+
+    </div>
+  </center>
+
+
+
+  <div id="notification-access" class="notification-access">
+
+    <center>
+      <div class="notification-content">
+        <button class="closebutton"><i class="fas fa-x"></i></button>
+        <h2>Stay Informed !</h2>
+        <hr class="hrline">
+        <center><br>
+          <p>Reading blogs every day helps your memory and makes your brain work better . <br><br> It also helps you
+            solve
+            problems . It's like doing exercises for your brain. This helps you understand things better and feel more
+            confident . <br><br>Consider turning the notification on !</p>
+        </center>
+        <button id="allow-notifications">Allow Notification !</button>
+      </div>
+
+    </center>
+
+  </div>
+
+
+
+
+
+  <div class="footer">
+    <center>
+      <div class="hrline"></div>
+    </center>
+    <center>
+      <p class="copyright"></p>
+    </center>
+  </div>
+
+
+
+  <script>
+
+    function easterandcopyright() {
+      const copyright = document.querySelector('.copyright');
+      const currentYear = new Date().getFullYear();
+
+      const day = 20;
+      const month = 4;
+      const year = 2024;
+
+      const inputDate = new Date(year, month - 1, day); // Note: month is zero-based in JavaScript Date object
+      const currentDate = new Date();
+      const difference = currentDate.getTime() - inputDate.getTime();
+      const daysPassed = Math.floor(difference / (1000 * 60 * 60 * 24));
+
+      console.log("Days passed since the entered date:", daysPassed);
+      copyright.innerHTML = "<img class='copyrighticon' src='https://upload.wikimedia.org/wikipedia/commons/b/b0/Copyright.svg' alt='copyrighticon'>" + currentYear + " Copyright Narrative Nook is the property of : Nitya Diwedi &nbsp;&nbsp; - &nbsp;&nbsp;" + "" + daysPassed + " days passed since launch &nbsp;🚀" + "&nbsp;&nbsp; - &nbsp;&nbsp;" + "<img class='bharatflag' src='https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg' alt='imageofbharat'>" + "भारते निर्मितम्";
+    } easterandcopyright();
+
+
+    // mandala rotating script starts from here !!!!!
+
+    const image = document.querySelector('.mandalabackground');
+    let rotationSpeed = 1;
+
+    function rotateImage() {
+      const rotation = parseFloat(image.dataset.rotation) || 0;
+      const newRotation = rotation + rotationSpeed * 0.1;
+      image.style.transform = `rotate(${newRotation}deg)`;
+      image.dataset.rotation = newRotation;
+      requestAnimationFrame(rotateImage);
+    } rotateImage();
+
+
+  </script>
+
+
+
+
+
+
+
+
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="javascript/gsapanimation.js"></script> -->
+
+  <script
+    src="https://cdn.jsdelivr.net/gh/Nuclear-Games/Narrative_Nook_Assets_Storage@main/javascript/credential.js"></script>
+  <script
+    src="https://cdn.jsdelivr.net/gh/Nuclear-Games/Narrative_Nook_Assets_Storage@main/javascript/fetchblogv1.js"></script>
+  <script
+    src="https://cdn.jsdelivr.net/gh/Nuclear-Games/Narrative_Nook_Assets_Storage@main/javascript/indexv1.1.js"></script>
+  <script
+    src="https://cdn.jsdelivr.net/gh/Nuclear-Games/Narrative_Nook_Assets_Storage@main/javascript/useraccountv1.js"></script>
+  <script
+    src="https://cdn.jsdelivr.net/gh/Nuclear-Games/Narrative_Nook_Assets_Storage@main/javascript/searchv1.js"></script>
+
+
+  <!-- <script>
+    function checkURL() {
+      var desiredURL = "https://narrativenook.blog";
+      var currentURL = window.location.href;
+
+      if (currentURL !== desiredURL) {
+        window.location.href = desiredURL;
+      }
+    }
+    window.onload = checkURL;
+  </script> -->
+
+</body>
+
+</html>
