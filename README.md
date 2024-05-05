@@ -8,7 +8,7 @@ Whether exploring the latest developments in technology, unraveling the intricac
 
 
 ---
-**Developer** : Akshat Diwedi : [Github Profile](https://github.com/Nuclear-Games)
+**Developer** : Akshat Diwedi : [Github Profile](https://github.com/akshat-diwedi)
 > **Note:** If you want to build your website so just mail me : *nuclear.games111@gmail.com*
 
 ---
