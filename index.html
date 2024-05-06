@@ -328,13 +328,14 @@
 
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="javascript/gsapanimation.js"></script> -->
-
+  
+  <!--   <script
+    src="https://cdn.jsdelivr.net/gh/Nuclear-Games/Narrative_Nook_Assets_Storage@main/javascript/indexv1.4.js"></script> -->
+  
   <script
     src="https://cdn.jsdelivr.net/gh/Nuclear-Games/Narrative_Nook_Assets_Storage@main/javascript/credential.js"></script>
   <script
     src="https://cdn.jsdelivr.net/gh/Nuclear-Games/Narrative_Nook_Assets_Storage@main/javascript/fetchblogv1.1.js"></script>
-  <script
-    src="https://cdn.jsdelivr.net/gh/Nuclear-Games/Narrative_Nook_Assets_Storage@main/javascript/indexv1.4.js"></script>
   <script
     src="https://cdn.jsdelivr.net/gh/Nuclear-Games/Narrative_Nook_Assets_Storage@main/javascript/useraccountv1.js"></script>
   <script
@@ -352,6 +353,65 @@
     }
     window.onload = checkURL;
   </script> -->
+
+
+
+  <script>
+
+     function checkWidthAndStyle() {
+  var link = document.querySelector('link[rel="stylesheet"]');
+  if (document.body.offsetWidth > 500) {
+    link.setAttribute('href', 'https://cdn.jsdelivr.net/gh/Nuclear-Games/Narrative_Nook_Assets_Storage@main/css/stylev1.css');
+  } else if (document.body.offsetWidth <= 500) {
+    link.setAttribute('href', 'https://cdn.jsdelivr.net/gh/Nuclear-Games/Narrative_Nook_Assets_Storage@main/css/mobilestylev1.4.css');
+  } else {
+    console.log("Something went wrong!");
+  }
+}
+
+checkWidthAndStyle();
+window.addEventListener('resize', function () {
+  checkWidthAndStyle();
+});
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const notificationAccess = document.getElementById("notification-access");
+  const allowButton = document.getElementById("allow-notifications");
+  const closebutton = document.querySelector('.closebutton');
+
+  // Check if the browser supports notifications
+  if ('Notification' in window) {
+    setTimeout(function() {
+      if (Notification.permission === 'granted') {
+        console.log("Notification permission already granted.");
+        // Don't show the popup if the permission is already granted
+        notificationAccess.style.display = "none";
+      } else {
+        notificationAccess.style.display = "block";
+
+        allowButton.addEventListener("click", function () {
+          Notification.requestPermission().then(function (permission) {
+            console.log("Permission status:", permission);
+            if (permission === "granted") {
+              notificationAccess.style.display = "none";
+            }
+          });
+        });
+
+        closebutton.addEventListener("click", function () {
+          notificationAccess.style.display = "none";
+        });
+      }
+    }, 10000); // wait 10 seconds before showing the popup
+  } else {
+    console.log("Browser does not support notifications");
+  }
+});
+    
+  </script>
 
 </body>
 
