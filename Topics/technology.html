@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="robots" content="INDEX, FOLLOW">
+    <meta name="theme-color" content="salmon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-messaging.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-database.js"></script>
+    <link rel="stylesheet" href="">
+    <link
+        href="https://cdn.jsdelivr.net/gh/eliyantosarage/font-awesome-pro@main/fontawesome-pro-6.5.2-web/css/all.min.css"
+        rel="stylesheet">
+    <link rel="shortcut icon"
+        href="https://cdn.jsdelivr.net/gh/Akshat-Diwedi/Narrative_Nook_Assets_Storage@main/logo/comp-logo.png"
+        type="image/x-icon">
+
+    <title>Narrative Nook || Technology</title>
+</head>
+
+<body>
+
+    <center>
+        <div class="boxofmandala">
+            <img class="mandalabackground"
+                src="https://cdn.jsdelivr.net/gh/Nuclear-Games/Narrative_Nook_Assets_Storage@main/icons/mandala.png"
+                alt="mandalaart">
+        </div>
+    </center>
+
+
+    <center>
+        <div class="topbar">
+            <h2 class="logoname" id="gsaplogotext">Narrative &nbsp;&nbsp; Nook</h2>
+            <center>
+                <div class="searchbox">
+                    <input type="text" class="postsearch" placeholder="Search Posts Here :"
+                        oninput="enableSearchButton()" onkeypress="handleKeyPress(event)">
+                    <button class="searchpostbtn" onclick="searchpost()" id="searchButton" disabled><i
+                            class="fas fa-magnifying-glass"></i></button>
+                </div>
+            </center>
+            <div class="topbarbuttonbox">
+                <button class="accountboxtrigger" onclick="openaccountpanel()">
+                    <i class="fa-duotone fa-user" style="color: #cb1954;"></i>&nbsp;&nbsp;Account
+                </button>
+                <button class="crown" onclick="alert('Premium Plan is coming soon !')">
+                    <img src="https://cdn.jsdelivr.net/gh/Nuclear-Games/Narrative_Nook_Assets_Storage@main/icons/Crown.png"
+                        alt="crownlogo">
+                </button>
+            </div>
+        </div>
+    </center>
+
+
+
+
+
+
+    <div class="useraccountbox">
+
+        <button onclick="closeaccountpanel()" class="closeuseraccountboxbtn"><i class="fa fa-x"></i>&nbsp; Close</button>
+        <div class="usernameandprofile">
+          <img src="" alt="userprofileimage" class="userprofileimage">
+          <div class="usernameandemaildisplay">
+            <h3 class="usernamedisplay"></h3>
+            <h5 class="useremaildisplay"></h5>
+          </div>
+        </div>
+    
+    
+        <center>
+          <h4 class="accountcreatedinfo">Your account is now created ! we're building this page , and soon you will be able
+            to control a lot of things ! 😉</h4>
+        </center>
+    
+        <center>
+          <button onclick="openloginsignupbox()" class="openloginsignupboxbtn">
+            <i class="fas fa-user"></i>
+            &nbsp;
+            Login / Signup
+          </button>
+    
+        </center>
+      </div>
+    
+    
+    
+    
+    
+    
+    
+      <div class="loginsignupbox">
+        <center>
+          <button id="toggle-btn" class="topsidebtns">Switch to Login</button>
+          <button onclick="closeloginsignupbox()" class="topsidebtns"><i class="fa fa-x"></i></button>
+        </center>
+    
+        <div class="form-container" id="login-form" style="display: none;">
+          <center>
+            <br>
+            <h2>Login</h2>
+            <input type="text" id="login-name" placeholder="Name" required>
+            <input type="text" id="login-phone" placeholder="Phone Number" required>
+            <input type="email" id="login-email" placeholder="Email" required>
+            <button id="login-btn" class="loginsignupbtn">Login</button>
+          </center>
+        </div>
+    
+        <div class="form-container" id="signup-form">
+          <center>
+            <br>
+            <h2>Signup</h2>
+            <input type="file" id="signup-profile-pic" accept="image/*">
+            <input type="text" id="signup-name" placeholder="Name" required>
+            <input type="text" id="signup-phone" placeholder="Phone Number" required>
+            <input type="email" id="signup-email" placeholder="Email" required>
+            <button id="signup-btn" class="loginsignupbtn">Signup</button>
+          </center>
+        </div>
+      </div>
+    
+
+
+
+
+
+    <center>
+        <div class="searchresults">
+            <center>
+                <h4 class="searchinstruction">On average, it only takes about 4 seconds to find an article. If you don't
+                    see any results, it means there's nothing matching your search in our database.</h4>
+            </center>
+        </div>
+    </center><br><br><br>
+
+
+
+    <!-- Main Code Starts From Here ! -->
+
+    <center>
+        <div class="secondrow-urlpath-totalposts">
+            <div class="url-path-box">
+                <p class="location-path-display">
+                    narrativenook.github.io&nbsp;/&nbsp;Topics&nbsp;/&nbsp;technology.html</p>
+            </div><br><br>
+            <div class="totalpostscounterbox">
+                <p class="totapostcounter">Path</p>
+            </div>
+        </div>
+    </center>
+
+
+    <center>
+        <div class="designerpagelinebreak">
+            <div class="line">
+                <div class="square">
+                    <div class="smallsquare"></div>
+                </div>
+            </div>
+        </div>
+    </center>
+
+
+
+
+
+
+    <center>
+        <div class="verticlelinebreak"></div>
+    </center>
+
+    <center>
+        <div class="latestpostsection">
+            <center>
+                <h2>Loading . . . </h2>
+            </center>
+        </div>
+    </center>
+    <br><br><br><br>
+
+
+
+    <script>
+        // mandala rotating script starts from here !!!!!
+        const image = document.querySelector('.mandalabackground');
+        let rotationSpeed = 1;
+
+        function rotateImage() {
+            const rotation = parseFloat(image.dataset.rotation) || 0;
+            const newRotation = rotation + rotationSpeed * 0.1;
+            image.style.transform = `rotate(${newRotation}deg)`;
+            image.dataset.rotation = newRotation;
+            requestAnimationFrame(rotateImage);
+        } rotateImage();
+    </script>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/gh/Nuclear-Games/Narrative_Nook_Assets_Storage@main/javascript/credential.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Nuclear-Games/Narrative_Nook_Assets_Storage@main/javascript/useraccountv1.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Nuclear-Games/Narrative_Nook_Assets_Storage@main/javascript/searchv1.js"></script>
+    <script>
+
+
+        function fetchAndDisplayRecentFiles() {
+            const filesRef = database.ref();
+
+            filesRef.orderByChild('timestamp').limitToLast(100).once('value')
+                .then((snapshot) => {
+                    if (snapshot.exists()) {
+
+
+                        const latestpostsection = document.querySelector('.latestpostsection')
+                        latestpostsection.innerHTML = '';
+
+
+                        snapshot.forEach((childSnapshot) => {
+                            const fileData = childSnapshot.val();
+
+
+
+                            if (fileData.tagbutton === "Technology") {
+                                const allbuttons = document.createElement('div');
+                                allbuttons.className = 'allbuttons';
+
+
+                                const linkofblog = document.createElement('a');
+                                linkofblog.className = 'linkofblog';
+                                linkofblog.href = fileData.downloadURL || '';
+                                linkofblog.target = '_blank';
+
+
+                                const postDiv = document.createElement('div');
+                                postDiv.className = 'latestpost';
+
+
+
+                                const authordetails = document.createElement('div');
+                                authordetails.className = 'authordetails';
+
+
+                                const timestamp = fileData.timestamp;
+                                const date = new Date(timestamp);
+                                const day = date.getDate();
+                                const month = date.getMonth() + 1; // Adding 1 because getMonth() returns zero-based month (0 for January)
+                                const year = date.getFullYear() % 100; // Getting last two digits of the year
+                                const formattedDate = `${day.toString().padStart(2, '0')}/${month.toString().padStart(2, '0')}/${year.toString().padStart(2, '0')}`;
+                                console.log(formattedDate);
+                                const timestampdisplay = document.createElement('p');
+                                timestampdisplay.className = 'timestampdisplay';
+                                timestampdisplay.innerText = "▪ " + formattedDate || '';
+
+
+
+                                const authorprofile = document.createElement('img');
+                                authorprofile.className = 'authorprofile';
+                                authorprofile.alt = 'author profile';
+                                authorprofile.src = fileData.authorprofile || '';
+
+
+                                const authorname = document.createElement('p');
+                                authorname.className = 'authorname';
+                                authorname.style.display = "flex";
+                                authorname.innerHTML = fileData.authorname || '';
+
+
+                                const bannerImage = document.createElement('img');
+                                bannerImage.className = 'banner';
+                                bannerImage.alt = 'thumbnail';
+                                bannerImage.src = fileData.thumbnailURL || '';
+
+
+                                const postHeading = document.createElement('h3');
+                                postHeading.className = 'postheading';
+                                postHeading.innerText = fileData.title || '';
+
+
+                                const sometextOfPost = document.createElement('p');
+                                sometextOfPost.className = 'sometextofpost';
+                                sometextOfPost.innerText = getFirst40Words(fileData.mainBlogContent);
+
+
+
+                                const viewers = document.createElement('button');
+                                viewers.className = 'viewers';
+
+                                if (fileData.viewCount >= 1000000000) {
+                                    viewers.innerHTML = '<i class="fas fa-eye"></i>&nbsp;&nbsp;' + (fileData.viewCount / 1000000000).toFixed(1) + 'B';
+                                } else if (fileData.viewCount >= 1000000) {
+                                    viewers.innerHTML = '<i class="fas fa-eye"></i>&nbsp;&nbsp;' + (fileData.viewCount / 1000000).toFixed(1) + 'M';
+                                } else if (fileData.viewCount >= 1000) {
+                                    viewers.innerHTML = '<i class="fas fa-eye"></i>&nbsp;&nbsp;' + (fileData.viewCount / 1000).toFixed(1) + 'K';
+                                } else {
+                                    viewers.innerHTML = '<i class="fas fa-eye"></i>&nbsp;&nbsp;' + fileData.viewCount;
+                                }
+
+                                const gotoblogbutton = document.createElement('button');
+                                gotoblogbutton.className = 'gotoblogbutton';
+                                gotoblogbutton.innerHTML = 'Read now &nbsp;&nbsp;<i class="fas fa-arrow-right"></i>';
+
+
+                                postDiv.appendChild(bannerImage);
+
+                                postDiv.appendChild(authordetails);
+                                authordetails.appendChild(authorprofile);
+                                authordetails.appendChild(authorname);
+                                authordetails.appendChild(timestampdisplay);
+
+                                postDiv.appendChild(postHeading);
+                                postDiv.appendChild(sometextOfPost);
+
+                                postDiv.appendChild(allbuttons);
+                                allbuttons.appendChild(viewers);
+                                allbuttons.appendChild(linkofblog);
+                                linkofblog.appendChild(gotoblogbutton);
+
+                                // Append the postDiv to the latestPostContainer
+                                latestpostsection.appendChild(postDiv);
+
+                            }
+                        });
+
+                    } else {
+                        console.log('No recent files found.');
+                    }
+                })
+                .catch((error) => {
+                    console.error('Error fetching recent files:', error);
+                });
+        }
+
+
+
+        // Function to get the first 40 words of a text
+        function getFirst40Words(text) {
+            if (typeof text !== 'string' || text.trim() === '') {
+                return '';
+            }
+            const words = text.split(' ');
+            const first40Words = words.slice(0, 40).join(' ') + " . . .";
+            return first40Words;
+        }
+
+        fetchAndDisplayRecentFiles();
+
+    </script>
+
+<script>
+    function checkWidthAndStyle() {
+        var link = document.querySelector('link[rel="stylesheet"]');
+        if (document.body.offsetWidth > 500) {
+            link.setAttribute('href', 'https://cdn.jsdelivr.net/gh/Akshat-Diwedi/Narrative_Nook_Assets_Storage@main/css/topic.css');
+        } else if (document.body.offsetWidth <= 500) {
+            link.setAttribute('href', 'https://cdn.jsdelivr.net/gh/Nuclear-Games/Narrative_Nook_Assets_Storage@main/css/mobilestylev1.css');
+        } else {
+            console.log("Something went wrong!");
+        }
+    }
+
+    checkWidthAndStyle();
+    window.addEventListener('resize', function () {
+        checkWidthAndStyle();
+    });
+
+</script>
+</body>
+
+</html>
